@@ -2,16 +2,23 @@ attrs==17.4.0
 certifi==2018.1.18
 chardet==3.0.4
 coverage==4.5.1
+findspark==1.1.0
 idna==2.6
 more-itertools==4.1.0
+numpy==1.14.2
+pandas==0.22.0
 pkginfo==1.4.2
 pluggy==0.6.0
 py==1.5.3
 py4j==0.10.6
+pyarrow==0.8.0
 pyspark==2.3.0
-pyspark-xgboost==0.1.0
+-e git+git@github.com:jq/pyspark_xgboost@f2588e12aa61805b5026f11a9bebd29250df6fad#egg=pyspark_xgboost
 pytest==3.5.0
 pytest-cov==2.5.1
+pytest-spark==0.4.4
+python-dateutil==2.7.2
+pytz==2018.3
 requests==2.18.4
 requests-toolbelt==0.8.0
 six==1.11.0

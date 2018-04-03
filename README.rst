@@ -23,7 +23,7 @@ install pyspark and arrow
 
 UNIT TEST
 ---------
-`python -m pytest  tests/test_pyspark.py ` to test spark locally
+`python -m pytest  tests/test_pyspark.py` to test spark locally
 
 USAGE
 -----
