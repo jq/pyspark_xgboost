@@ -1,0 +1,45 @@
+*.py[cod]
+__pycache__
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# GitHub token file
+.pypt/gh-token
+
+# 
+.DS_Store
+
+# python env
+env/
+metastore_db
+commit.sh
+.idea
+.pytest_cache/
