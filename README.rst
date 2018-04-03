@@ -13,9 +13,17 @@ pyspark-xgboost.  pyspark xgboost
 
 PURPOSE
 -------
+sibling project as https://github.com/dmlc/xgboost/tree/master/jvm-packages/xgboost4j-spark
+for python
 
 INSTALLATION
 ------------
+install pyspark and arrow
+
+
+UNIT TEST
+---------
+`python -m pytest  tests/test_pyspark.py ` to test spark locally
 
 USAGE
 -----
