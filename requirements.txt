@@ -13,7 +13,6 @@ py==1.5.3
 py4j==0.10.6
 pyarrow==0.8.0
 pyspark==2.3.0
--e git+git@github.com:jq/pyspark_xgboost@f2588e12aa61805b5026f11a9bebd29250df6fad#egg=pyspark_xgboost
 pytest==3.5.0
 pytest-cov==2.5.1
 pytest-spark==0.4.4

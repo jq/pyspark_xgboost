@@ -43,3 +43,6 @@ metastore_db
 commit.sh
 .idea
 .pytest_cache/
+
+# local
+derby.log
