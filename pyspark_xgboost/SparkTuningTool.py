@@ -10,34 +10,16 @@ from pyspark.sql.types import IntegerType, FloatType
 from collections import namedtuple
 import sys
 import math
-from xgboostestimator import  XGBoostEstimator
+from xgboostestimator import XGBoostEstimator
 
 SalesRecord = namedtuple("SalesRecord", ["storeId", "daysOfWeek", "date", "sales", "customers",
-                                         "open", "promo", "stateHoliday", "schoolHoliday"])
-TestRecord = namedtuple("TestRecord", ["Id","storeId", "daysOfWeek", "date",
                                          "open", "promo", "stateHoliday", "schoolHoliday"])
 
 Store = namedtuple("Store", ["storeId", "storeType", "assortment", "competitionDistance",
                  "competitionOpenSinceMonth", "competitionOpenSinceYear", "promo2",
                  "promo2SinceWeek", "promo2SinceYear", "promoInterval"])
 
-def parseTestFile(testPath):
-    isHeader = True
-    records = []
-    f = open(testPath, "r")
-    for line in f.readlines():
-        if isHeader:
-            isHeader = False
-        else:
-            idStr, storeIdStr, daysOfWeekStr, dateStr, openStr, promoStr,\
-            stateHolidayStr, schoolHolidayStr = line.split(",")
-            salesRecord = TestRecord(int(idStr),int(storeIdStr), int(daysOfWeekStr), dateStr, \
-                                     0 if (len(openStr) == 0) else int(openStr), \
-                                     0 if (len(promoStr) == 0) else int(promoStr), stateHolidayStr,\
-                                     schoolHolidayStr)
-            records.append(salesRecord)
-    f.close()
-    return records
+
 def parseStoreFile(storeFilePath):
     isHeader = True
     storeInstances = []
@@ -175,6 +157,7 @@ def crossValidation(xgboostParam, trainingData):
         .setTrainRatio(0.8)
     return tv.fit(trainingData)
 
+
 def main(trainingPath, storeFilePath):
     sparkSession = SparkSession.builder.appName("rosseman").getOrCreate()
     allSalesRecords = parseTrainingFile(trainingPath)
@@ -197,6 +180,7 @@ def main(trainingPath, storeFilePath):
 
     bestModel = crossValidation(params, featureEngineeredDF)
     return bestModel
+
 
 if __name__ == "__main__":
     bestModel = main(sys.argv[1], sys.argv[2])
