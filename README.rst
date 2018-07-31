@@ -25,6 +25,9 @@ UNIT TEST
 ---------
 `python -m pytest  tests/test_pyspark.py` to test spark locally
 
+make sure python points to the right interpreter location
+you may use `env/bin/python` for virtualenv
+
 USAGE
 -----
 

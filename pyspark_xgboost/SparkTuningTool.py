@@ -10,7 +10,8 @@ from pyspark.sql.types import IntegerType, FloatType
 from collections import namedtuple
 import sys
 import math
-from xgboostestimator import XGBoostEstimator
+
+from pyspark_xgboost.xgboostestimator import XGBoostEstimator
 
 SalesRecord = namedtuple("SalesRecord", ["storeId", "daysOfWeek", "date", "sales", "customers",
                                          "open", "promo", "stateHoliday", "schoolHoliday"])
