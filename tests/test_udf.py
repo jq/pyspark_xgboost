@@ -6,8 +6,8 @@ from pyspark.sql.types import IntegerType, StringType
 def to_upper(s):
      return s.str.upper()
 
-# can't use "integer"
-@pandas_udf('integer', PandasUDFType.SCALAR)
+# can't use "integer" or 'integer'
+@pandas_udf(IntegerType(), PandasUDFType.SCALAR)
 def add_one(x):
     print(x)
     return x + 1
