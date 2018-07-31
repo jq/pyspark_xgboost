@@ -34,8 +34,9 @@ def test_rdd(spark_context, spark_session):
     # 	at java.io.DataInputStream.readInt(DataInputStream.java:392)
     # seems related to slen output int
     #df.select(slen("name").alias("slen(name)")).show()
+    # this hit same error
+    # df.select(to_upper("name")).show()
 
-    # df.select(slen("name").alias("slen(name)"),
-    #           to_upper("name"), add_one("age")).count()
+    df.select(slen("name").alias("slen(name)"),
+              to_upper("name"), add_one("age")).count()
 
-    df.select(to_upper("name"), add_one("age")).show()
