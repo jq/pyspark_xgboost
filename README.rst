@@ -23,7 +23,7 @@ install pyspark and arrow
 
 UNIT TEST
 ---------
-`python -m pytest  tests/test_pyspark.py` to test spark locally
+`env/bin/python -m pytest -s tests/test_pyspark.py` to test spark locally -s for output console log
 
 make sure python points to the right interpreter location
 you may use `env/bin/python` for virtualenv

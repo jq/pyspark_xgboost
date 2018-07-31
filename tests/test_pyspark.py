@@ -13,6 +13,8 @@ def test_spark_session_dataframe(spark_session):
     from pyspark.sql.functions import rand
     df = spark_session.range(1 << 22).toDF("id").withColumn("x", rand())
     df.printSchema()
+
+    df.map()
     pdf = df.toPandas()
     spark_session.conf.set("spark.sql.execution.arrow.enabled", "true")
     pdf = df.toPandas()
