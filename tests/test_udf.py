@@ -35,5 +35,7 @@ def test_rdd(spark_context, spark_session):
     # seems related to slen output int
     #df.select(slen("name").alias("slen(name)")).show()
 
-    df.select(slen("name").alias("slen(name)"),
-              to_upper("name"), add_one("age")).count()
+    # df.select(slen("name").alias("slen(name)"),
+    #           to_upper("name"), add_one("age")).count()
+
+    df.select(to_upper("name"), add_one("age")).show()
