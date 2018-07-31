@@ -2,11 +2,12 @@ from pyspark import SQLContext
 from pyspark.sql.functions import pandas_udf, PandasUDFType
 from pyspark.sql.types import IntegerType, StringType
 
-#@pandas_udf(StringType())
+@pandas_udf(StringType())
 def to_upper(s):
      return s.str.upper()
 
-#@pandas_udf("integer", PandasUDFType.SCALAR)
+# can't use "integer"
+@pandas_udf(IntegerType(), PandasUDFType.SCALAR)
 def add_one(x):
     print(x)
     return x + 1
@@ -23,8 +24,9 @@ def test_rdd(spark_context, spark_session):
     # df.show()
 
     slen = pandas_udf(lambda s: s.str.len(), IntegerType())
-    upper = pandas_udf(to_upper, StringType())
-    addOne = pandas_udf(add_one, IntegerType(), PandasUDFType.SCALAR)
+    # below is similar to @
+    # upper = pandas_udf(to_upper, StringType())
+    # addOne = pandas_udf(add_one, IntegerType(), PandasUDFType.SCALAR)
     # this works
     df.select("name").show()
 
@@ -34,4 +36,4 @@ def test_rdd(spark_context, spark_session):
     #df.select(slen("name").alias("slen(name)")).show()
 
     df.select(slen("name").alias("slen(name)"),
-              upper("name"),addOne("age")).count()
+              to_upper("name"), add_one("age")).count()
